@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System</title>
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .solar-system {
+            position: relative;
+            width: 600px;
+            height: 600px;
+        }
+        .sun {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: #FFA500;
+            border-radius: 50%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 30px #FFA500;
+        }
+        .orbit {
+            position: absolute;
+            border: 1px dashed rgba(255,255,255,0.3);
+            border-radius: 50%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .planet {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+        }
+        @keyframes orbit {
+            from { transform: rotate(0deg) translateX(var(--distance)) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(var(--distance)) rotate(-360deg); }
+        }
+        .mercury {
+            --distance: 80px;
+            width: 10px;
+            height: 10px;
+            background: #b1b1b1;
+            animation: orbit 10s linear infinite;
+        }
+        .mercury.orbit { width: 160px; height: 160px; animation: none; }
+
+        .venus {
+            --distance: 120px;
+            width: 18px;
+            height: 18px;
+            background: #d9b38c;
+            animation: orbit 16s linear infinite;
+        }
+        .venus.orbit { width: 240px; height: 240px; animation: none; }
+
+        .earth {
+            --distance: 170px;
+            width: 20px;
+            height: 20px;
+            background: #1e90ff;
+            animation: orbit 24s linear infinite;
+        }
+        .earth.orbit { width: 340px; height: 340px; animation: none; }
+
+        .mars {
+            --distance: 210px;
+            width: 16px;
+            height: 16px;
+            background: #ff4500;
+            animation: orbit 32s linear infinite;
+        }
+        .mars.orbit { width: 420px; height: 420px; animation: none; }
+
+        /* Additional planets can be added similarly */
+    </style>
+</head>
+<body>
+    <div class="solar-system">
+        <div class="sun"></div>
+        <div class="orbit mercury orbit"></div>
+        <div class="planet mercury"></div>
+        <div class="orbit venus orbit"></div>
+        <div class="planet venus"></div>
+        <div class="orbit earth orbit"></div>
+        <div class="planet earth"></div>
+        <div class="orbit mars orbit"></div>
+        <div class="planet mars"></div>
+    </div>
+</body>
+</html>
